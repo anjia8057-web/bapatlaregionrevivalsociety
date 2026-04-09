@@ -173,6 +173,69 @@
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
+    .membership-layout {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: start;
+    }
+
+    .membership-tiers {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: 18px;
+    }
+
+    .tier h3 {
+      margin: 0 0 6px;
+      color: #0b5660;
+    }
+
+    .form-card form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      color: #243b53;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      border: 1px solid #bcccdc;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      color: #102a43;
+      background: #fff;
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.96rem;
+      padding: 11px 18px;
+      cursor: pointer;
+      width: fit-content;
+    }
+
     .contact a {
       color: var(--brand-strong);
       font-weight: 700;
@@ -191,6 +254,10 @@
         grid-template-columns: 1fr;
         padding: 28px;
       }
+
+      .membership-layout {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -200,6 +267,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#vision">Vision</a></li>
       <li><a href="#mission">Mission</a></li>
+      <li><a href="#memberships">Memberships</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -282,6 +350,79 @@
               <li>Preserve and celebrate regional identity.</li>
               <li>Encourage civic participation and volunteerism.</li>
             </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="memberships">
+      <div class="container">
+        <h2>Memberships</h2>
+        <p class="intro">
+          Membership connects supporters directly to the society's programs. Members contribute ideas, volunteer effort,
+          and resources while receiving regular updates and participation opportunities.
+        </p>
+        <div class="membership-layout">
+          <article class="card">
+            <h3>Membership Options</h3>
+            <p>Choose the type that best matches your involvement and commitment.</p>
+            <div class="membership-tiers">
+              <div class="card tier">
+                <h3>Student</h3>
+                <p>For students who want to engage in learning and community service projects.</p>
+              </div>
+              <div class="card tier">
+                <h3>Individual</h3>
+                <p>For residents and professionals contributing time, mentorship, or local expertise.</p>
+              </div>
+              <div class="card tier">
+                <h3>Patron</h3>
+                <p>For supporters and organizations sponsoring high-impact development initiatives.</p>
+              </div>
+            </div>
+          </article>
+          <article class="card form-card">
+            <h3>Join As A Member</h3>
+            <form name="membership-application" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="membership-application">
+              <p style="display:none">
+                <label>Do not fill this field: <input name="bot-field"></label>
+              </p>
+              <div class="field">
+                <label for="member-name">Full Name</label>
+                <input id="member-name" type="text" name="full_name" required>
+              </div>
+              <div class="field">
+                <label for="member-email">Email</label>
+                <input id="member-email" type="email" name="email" required>
+              </div>
+              <div class="field">
+                <label for="member-phone">Phone</label>
+                <input id="member-phone" type="tel" name="phone">
+              </div>
+              <div class="field">
+                <label for="member-location">Location</label>
+                <input id="member-location" type="text" name="location">
+              </div>
+              <div class="field">
+                <label for="member-type">Membership Type</label>
+                <select id="member-type" name="membership_type" required>
+                  <option value="">Select one</option>
+                  <option value="student">Student</option>
+                  <option value="individual">Individual</option>
+                  <option value="patron">Patron</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="member-interest">Areas Of Interest</label>
+                <input id="member-interest" type="text" name="interest" placeholder="Education, culture, environment">
+              </div>
+              <div class="field">
+                <label for="member-message">Message</label>
+                <textarea id="member-message" name="message" placeholder="Share how you would like to contribute"></textarea>
+              </div>
+              <button class="btn" type="submit">Submit Membership Request</button>
+            </form>
           </article>
         </div>
       </div>
